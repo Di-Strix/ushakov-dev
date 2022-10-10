@@ -1,0 +1,69 @@
+@use '@angular/material' as mat;
+
+$typography: mat.define-typography-config();
+
+:host {
+  width: 100%;
+  min-height: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.image {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  flex: 2 1 auto;
+
+  .cogs {
+    svg .cog-1 {
+      transform-origin: 306.785px 190.5px;
+      animation: spin 10s linear infinite;
+      animation-delay: 0.8s;
+      fill: #222222;
+    }
+
+    svg .cog-2 {
+      transform-origin: 207.352px 357.835px;
+      animation: spin-reverse 10s linear infinite;
+      animation-delay: 0.8s;
+      fill: #434343;
+    }
+
+    svg .cog-3 {
+      transform-origin: 393.785px 409.5px;
+      animation: spin 10s linear infinite;
+      animation-delay: 0.8s;
+      fill: #626262;
+    }
+
+    @keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin-reverse {
+      100% {
+        -moz-transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+        transform: rotate(-360deg);
+      }
+    }
+  }
+}
+
+.text {
+  display: flex;
+  flex: 3 1 auto;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  h1 {
+    @include mat.typography-level($typography, 'display-1');
+  }
+}
